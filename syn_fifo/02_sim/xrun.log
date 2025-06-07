@@ -1,0 +1,92 @@
+xrun(64): 20.09-s001: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s001: Started on Jun 07, 2025 at 07:11:12 EDT
+xrun
+	+xm64bit
+	-sv
+	-f ../02_sim/flist.f
+		../00_src/sfifo.sv
+		../00_src/duo_port_RAM_single_clk.sv
+		../01_tb/syn_fifo_tb.sv
+	-timescale 1ns/1ns
+	+ntb_random_seed=automatic
+	+access+rcw
+
+   User defined plus("+") options:
+	+ntb_random_seed=automatic
+
+file: ../00_src/sfifo.sv
+	module worklib.sfifo:sv
+		errors: 0, warnings: 0
+file: ../00_src/duo_port_RAM_single_clk.sv
+	module worklib.duo_port_RAM_single_clk:sv
+		errors: 0, warnings: 0
+file: ../01_tb/syn_fifo_tb.sv
+	module worklib.syn_fifo_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		syn_fifo_tb
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.duo_port_RAM_single_clk:sv <0x0e23d84d>
+			streams:   7, words:  2957
+		worklib.sfifo:sv <0x1f2c6257>
+			streams:  16, words:  5923
+		worklib.syn_fifo_tb:sv <0x0ac5e953>
+			streams:  11, words: 33115
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 3       3
+		Registers:              30      30
+		Scalar wires:           15       -
+		Vectored wires:         10       -
+		Always blocks:           4       4
+		Initial blocks:          3       3
+		Cont. assignments:       8       8
+		Pseudo assignments:     13      13
+		Simulation timescale:  1ns
+	Writing initial simulation snapshot: worklib.syn_fifo_tb:sv
+Loading snapshot worklib.syn_fifo_tb:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/cadence/XCELIUM2009/tools/xcelium/files/xmsimrc
+xcelium> run
+--------------------[TEST] Simulation Started--------------------
+[TEST] Reset completed
+--------------------[TEST] Writing to FIFO until full--------------------
+PASS: FIFO is full
+--------------------[TEST] Writing when FIFO is full--------------------
+PASS: FIFO prevents writing when full
+--------------------[TEST] Reading from FIFO until empty--------------------
+PASS: FIFO is empty
+--------------------[TEST] Reading when FIFO is empty--------------------
+PASS: FIFO prevents reading when empty
+--------------------[TEST] Alternating Write and Read---------------------
+PASS: Correct data read           0
+PASS: Correct data read           1
+PASS: Correct data read           2
+PASS: Correct data read           3
+PASS: Correct data read           4
+PASS: Correct data read           5
+PASS: Correct data read           6
+PASS: Correct data read           7
+PASS: Correct data read           8
+PASS: Correct data read           9
+--------------------[TEST] Random Write/Read Sequences--------------------
+--------------------[TEST] Simultaneous Write and Read--------------------
+FAIL: Read after simultaneous write incorrect
+--------------------[TEST] Stress Test - Multiple Fill and Empty Cycles--------------------
+PASS: FIFO is full in cycle           0
+FAIL: FIFO should be empty in cycle           0
+FAIL: FIFO should be full in cycle           1
+FAIL: FIFO should be empty in cycle           1
+PASS: FIFO is full in cycle           2
+FAIL: FIFO should be empty in cycle           2
+--------------------[TEST] Simulation Completed---------------------
+Simulation complete via $finish(1) at time 2376 NS + 0
+../01_tb/syn_fifo_tb.sv:184     $finish;
+xcelium> exit
+TOOL:	xrun(64)	20.09-s001: Exiting on Jun 07, 2025 at 07:11:14 EDT  (total: 00:00:02)

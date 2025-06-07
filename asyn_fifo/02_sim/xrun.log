@@ -1,0 +1,97 @@
+xrun(64): 20.09-s001: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	20.09-s001: Started on Jun 07, 2025 at 08:23:57 EDT
+xrun
+	+xm64bit
+	-sv
+	-f ../02_sim/flist.f
+		../00_src/afifo.sv
+		../00_src/duo_port_RAM_duo_clk.sv
+		../00_src/gray_2_bin.sv
+		../00_src/bin_2_gray.sv
+		../00_src/shift_reg.sv
+		../01_tb/asyn_fifo_tb.sv
+	-timescale 1ns/1ns
+	+ntb_random_seed=automatic
+	+access+rcw
+
+   User defined plus("+") options:
+	+ntb_random_seed=automatic
+
+Recompiling... reason: file '../00_src/shift_reg.sv' is newer than expected.
+	expected: Sat Jun  7 08:19:02 2025
+	actual:   Sat Jun  7 08:23:54 2025
+file: ../00_src/shift_reg.sv
+	module worklib.shift_reg:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		asyn_fifo_tb
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+  .i_bin(p_wr_ptr)    ,
+                |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,56|16): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+  .o_gray(gray_wr_ptr)
+                    |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,57|20): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+  .i_bin(p_rd_ptr)    ,
+                |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,61|16): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+  .o_gray(gray_rd_ptr)
+                    |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,62|20): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+    .i_data_in(gray_wr_ptr)        ,
+                         |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,71|25): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+	  .o_data_out(gray_wr_ptr_rd_clk)
+	                               |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,72|32): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+    .i_data_in(gray_rd_ptr)        ,
+                         |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,81|25): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+	  .o_data_out(gray_rd_ptr_wr_clk)
+	                               |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,82|32): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+    .i_gray(gray_wr_ptr_rd_clk),
+                             |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,86|29): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+    .o_bin(wr_ptr_rd_clk)
+                       |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,87|23): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+    .i_gray(gray_rd_ptr_wr_clk),
+                             |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,91|29): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+    .o_bin(rd_ptr_wr_clk)
+                       |
+xmelab: *W,CUVMPW (../00_src/afifo.sv,92|23): port sizes differ in port connection(5/4) for the instance(asyn_fifo_tb.uut) .
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.shift_reg:sv <0x1b2f7b51>
+			streams:   5, words:  1735
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 9       6
+		Registers:              45      38
+		Scalar wires:           15       -
+		Vectored wires:         32       -
+		Always blocks:          10       8
+		Initial blocks:          3       3
+		Cont. assignments:      11       9
+		Pseudo assignments:     26      26
+		Simulation timescale:  1ns
+	Writing initial simulation snapshot: worklib.asyn_fifo_tb:sv
+Loading snapshot worklib.asyn_fifo_tb:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/cadence/XCELIUM2009/tools/xcelium/files/xmsimrc
+xcelium> run
+--------------------[TEST] Simulation Started--------------------
+[TEST] Reset completed
+--------------------[TEST] Writing to FIFO until full--------------------
+--------------------[TEST] Reading from FIFO until empty--------------------
+[TEST] Simulation Completed
+Simulation complete via $finish(1) at time 5400 NS + 0
+../01_tb/asyn_fifo_tb.sv:91         $finish;
+xcelium> exit
+TOOL:	xrun(64)	20.09-s001: Exiting on Jun 07, 2025 at 08:23:57 EDT  (total: 00:00:00)
