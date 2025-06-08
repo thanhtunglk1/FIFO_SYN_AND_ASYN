@@ -25,9 +25,11 @@ module sfifo #(
   logic [ADDR_WIDTH:0] p_rd_ptr, n_rd_ptr;
   logic [ADDR_WIDTH:0] p_wr_ptr, n_wr_ptr;
 
+  logic empty;
+
   logic update_wr_ptr, update_rd_ptr;
   assign update_wr_ptr = ~o_full  & i_wr_en;
-  assign update_rd_ptr = ~o_empty & i_rd_en;
+  assign update_rd_ptr = ~empty & i_rd_en;
 
 //----------------------------------------------------------------------------
 
@@ -43,11 +45,12 @@ module sfifo #(
     end
   end
 
-  assign o_full  = (p_rd_ptr[ADDR_WIDTH] == ~p_wr_ptr[ADDR_WIDTH]) & (p_rd_ptr[ADDR_WIDTH:0] == p_wr_ptr[ADDR_WIDTH - 1:0]);
-  assign o_empty = (p_rd_ptr == p_wr_ptr);
-
   logic  pass_through;
-  assign pass_through = o_empty & i_rd_en & i_wr_en;
+  assign pass_through = empty & i_rd_en & i_wr_en;
+
+  assign o_full  = (p_rd_ptr[ADDR_WIDTH] == ~p_wr_ptr[ADDR_WIDTH]) & (p_rd_ptr[ADDR_WIDTH:0] == p_wr_ptr[ADDR_WIDTH - 1:0]);
+  assign empty   = (p_rd_ptr == p_wr_ptr);
+  assign o_empty = ~pass_through & empty;
 
   assign n_rd_ptr = (update_rd_ptr & ~pass_through) ? (p_rd_ptr + 1'b1) : p_rd_ptr;
   assign n_wr_ptr = (update_wr_ptr & ~pass_through) ? (p_wr_ptr + 1'b1) : p_wr_ptr;

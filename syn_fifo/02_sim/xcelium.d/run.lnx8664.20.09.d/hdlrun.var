@@ -87,4 +87,4 @@ define VIEW_MAP ( $VIEW_MAP \
 , .SVMS => SVMS \
 )
 define ELAB_SNAPSHOT
-define SNAPSHOT worklib.syn_fifo_new_tb:sv
+define SNAPSHOT worklib.syn_fifo_tb:sv

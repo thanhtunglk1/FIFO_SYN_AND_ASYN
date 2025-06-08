@@ -1,5 +1,5 @@
 xrun(64): 20.09-s001: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	20.09-s001: Started on Jun 07, 2025 at 07:11:12 EDT
+TOOL:	xrun(64)	20.09-s001: Started on Jun 07, 2025 at 17:36:48 EDT
 xrun
 	+xm64bit
 	-sv
@@ -14,14 +14,11 @@ xrun
    User defined plus("+") options:
 	+ntb_random_seed=automatic
 
+Recompiling... reason: file '../00_src/sfifo.sv' is newer than expected.
+	expected: Sat Jun  7 17:33:38 2025
+	actual:   Sat Jun  7 17:36:40 2025
 file: ../00_src/sfifo.sv
 	module worklib.sfifo:sv
-		errors: 0, warnings: 0
-file: ../00_src/duo_port_RAM_single_clk.sv
-	module worklib.duo_port_RAM_single_clk:sv
-		errors: 0, warnings: 0
-file: ../01_tb/syn_fifo_tb.sv
-	module worklib.syn_fifo_tb:sv
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
@@ -30,23 +27,19 @@ file: ../01_tb/syn_fifo_tb.sv
 xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.duo_port_RAM_single_clk:sv <0x0e23d84d>
-			streams:   7, words:  2957
-		worklib.sfifo:sv <0x1f2c6257>
-			streams:  16, words:  5923
-		worklib.syn_fifo_tb:sv <0x0ac5e953>
-			streams:  11, words: 33115
+		worklib.sfifo:sv <0x78a899f0>
+			streams:  17, words:  6243
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                 3       3
-		Registers:              30      30
-		Scalar wires:           15       -
+		Registers:              31      31
+		Scalar wires:           16       -
 		Vectored wires:         10       -
 		Always blocks:           4       4
 		Initial blocks:          3       3
-		Cont. assignments:       8       8
+		Cont. assignments:       9       9
 		Pseudo assignments:     13      13
 		Simulation timescale:  1ns
 	Writing initial simulation snapshot: worklib.syn_fifo_tb:sv
@@ -89,4 +82,4 @@ FAIL: FIFO should be empty in cycle           2
 Simulation complete via $finish(1) at time 2376 NS + 0
 ../01_tb/syn_fifo_tb.sv:184     $finish;
 xcelium> exit
-TOOL:	xrun(64)	20.09-s001: Exiting on Jun 07, 2025 at 07:11:14 EDT  (total: 00:00:02)
+TOOL:	xrun(64)	20.09-s001: Exiting on Jun 07, 2025 at 17:36:48 EDT  (total: 00:00:00)

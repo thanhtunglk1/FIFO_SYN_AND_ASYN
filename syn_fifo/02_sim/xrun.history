@@ -49,3 +49,6 @@ s48(04Jun2025:12:52:19):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/
 s49(04Jun2025:12:53:29):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 
 s50(04Jun2025:12:54:20):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 
 s51(07Jun2025:07:11:12):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 
+s52(07Jun2025:17:33:14):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 
+s53(07Jun2025:17:33:40):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 
+s54(07Jun2025:17:36:48):  xrun +xm64bit -sv -f ../02_sim/flist.f -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw 

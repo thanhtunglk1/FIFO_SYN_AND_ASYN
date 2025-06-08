@@ -1,5 +1,5 @@
 module gray_2_bin #(
-  parameter WIDTH =4
+  parameter WIDTH = 4
 )(
   input  logic [WIDTH -1:0] i_gray,
   output logic [WIDTH -1:0] o_bin
